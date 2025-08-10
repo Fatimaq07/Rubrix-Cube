@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rubik's Cube — Instanced Three.js</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.155.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <div id="canvas-wrap">
+      <canvas id="three-canvas"></canvas>
+    </div>
+
+    <div id="ui">
+      <h1>NxNxN Rubik's Cube — Instanced</h1>
+      <div class="flex-between">
+        <div>
+          <label>Cube size N (1 - 20)</label>
+          <input id="inputN" type="number" min="1" max="20" value="3" />
+        </div>
+        <div style="width:120px;">
+          <label>Device pixel ratio</label>
+          <input id="dpr" type="range" min="0.5" max="2" step="0.1" value="1" />
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <button id="buildBtn">Build Cube</button>
+        <button id="scrambleBtn">Scramble</button>
+        <button id="solveBtn">Solve</button>
+      </div>
+
+      <label>Move speed (ms)</label>
+      <input id="speed" type="range" min="100" max="1200" step="50" value="400" />
+
+      <div style="margin-top:8px;">
+        <label>Singmaster moves (face buttons)</label>
+        <div class="controls" id="moveButtons"></div>
+      </div>
+
+      <div style="margin-top:8px;">
+        <label>Color-blind markers</label>
+        <div class="row">
+          <button id="toggleMarkers">Toggle Markers</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+      </div>
+
+      <label>Move history</label>
+      <div class="history" id="history"></div>
+      <div class="row" style="margin-top:8px;">
+        <button id="undoBtn">Undo</button>
+        <button id="redoBtn">Redo</button>
+      </div>
+
+      <label>Export / Import</label>
+      <textarea id="exportArea" rows="4" placeholder='Press Export to get JSON state'></textarea>
+      <div class="row" style="margin-top:6px;">
+        <button id="exportBtn">Export</button>
+        <button id="importBtn">Import</button>
+      </div>
+
+      <label class="muted">Controls: Left-click sticker to select layer; Drag mouse to orbit; Shift+Drag to rotate layer; Keys: U D L R F B and suffix ' for counterclockwise, number for layers (e.g., 2U)</label>
+
+      <footer>
+        <div>Built with Three.js — InstancedMesh rendering and quaternion animations.</div>
+      </footer>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
