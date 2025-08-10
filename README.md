@@ -90,3 +90,8 @@ Logical State: The cube's state (the position and orientation of each cubie) is 
 Animation: Rotations are handled mathematically using Quaternions to avoid issues like gimbal lock and to allow for smooth, spherical interpolation between the start and end states of a move.
 
 Move History: The move history is stored as a list of permutation operations, making undo, redo, and the "solve" (reverse history) features straightforward to implement.
+
+## 🌐 Live Demo
+[![View Live](https://img.shields.io/badge/Live%20Demo-Click%20Here-purple?style=for-the-badge)](https://rubrix-cube.vercel.app/)
+
+
